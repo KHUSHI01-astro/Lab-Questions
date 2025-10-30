@@ -1,0 +1,30 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int arr[]={1,4,20,3,10,5};
+    int n = 6;
+    int target = 33;
+    int sum,i,j,k;
+    for (i=0;i<n;i++){
+        sum = 0;
+        for (j=i;j<n;j++){
+            sum = sum+arr[j];
+            if(sum == target){
+                printf("subarray with sum %d is:",target);
+                for (k=i;k<=j;k++){
+                    printf("%d",arr[k]);
+                }
+                printf("\n");
+                return 0;
+            }
+        }
+    }
+    printf("No subarray found with sum %d \n",target);
+
+    return 0;
+}
+
+
+OUTPUT--
+subarray with sum 33 is:20310
