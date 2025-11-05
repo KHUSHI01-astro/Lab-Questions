@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    long long fact, sum = 0;  // use long long for large results
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    
+    for (i = 1; i <= n; i++) {
+        fact = 1;
+        for (j = 1; j <= i; j++) {
+            fact *= j; 
+        }
+        sum += fact;
+    }
+
+    printf("Sum of the series 1! + 2! + ... + %d! = %lld\n", n, sum);
+
+    return 0;
+}
