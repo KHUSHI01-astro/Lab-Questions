@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n, i, j;
+    float x, term, sum = 1.0, fact; // sum starts with 1 for the first term (1)
+
+    printf("Enter the value of x: ");
+    scanf("%f", &x);
+
+    printf("Enter the number of terms (n): ");
+    scanf("%d", &n);
+
+    // Loop to calculate the series sum
+    for (i = 1; i <= n; i++) {
+        fact = 1.0;
+        for (j = 1; j <= i; j++) {
+            fact *= j;   // Calculate i!
+        }
+        term = pow(x, i) / fact; // Calculate x^i / i!
+        sum += term;             // Add to total sum
+    }
+
+    printf("\nSum of the series = %.4f\n", sum);
+
+    return 0;
+}
