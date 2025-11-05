@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int nums[n];
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &nums[i]);
+
+    int left[n], right[n], product[n];
+
+    left[0] = 1;
+    for (int i = 1; i < n; i++)
+        left[i] = left[i - 1] * nums[i - 1];
+
+
+    right[n - 1] = 1;
+    for (int i = n - 2; i >= 0; i--)
+        right[i] = right[i + 1] * nums[i + 1];
+
+
+    for (int i = 0; i < n; i++)
+        product[i] = left[i] * right[i];
+
+    printf("Product of all other elements: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d", product[i]);
+        if (i != n - 1)
+            printf(" ");
+    }
+    printf("\n");
+
+    return 0;
+}
